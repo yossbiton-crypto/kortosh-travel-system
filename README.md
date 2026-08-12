@@ -22,6 +22,20 @@ python manage.py runserver
 
 Then open `/admin/`.
 
+## Deploying a hosted preview (Render)
+
+To try the admin without installing anything locally: go to
+[render.com](https://render.com), sign in (or create a free account), click
+**New > Blueprint**, and point it at this repo/branch — Render reads
+`render.yaml` and provisions the web service automatically. It will ask you
+to set `DJANGO_SUPERUSER_PASSWORD` during setup; that plus the username
+`admin` is your login once it's deployed. The build step also seeds a few
+sample hotels/tours/buses and one request with competing quotes, so the
+admin isn't empty on first login.
+
+Note: the free plan uses an ephemeral SQLite file, so data can reset on
+redeploy — fine for previewing, not for real use.
+
 ## Apps and data model
 
 - **accounts** — `Agent`: a staff member (linked to a Django `User`) who
